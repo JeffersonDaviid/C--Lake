@@ -1,0 +1,18 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Archivos de perfil de usuario (imágenes)
+src/assets/profiles/*.jpg
+src/assets/profiles/*.png
+src/assets/profiles/*.jpeg
+src/assets/profiles/*.gif
+
+# Mantener .gitkeep
+!src/assets/profiles/.gitkeep

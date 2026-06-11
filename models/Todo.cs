@@ -7,9 +7,9 @@ public class Todo
     public string Details { get; set; }
     public DateTime Date { get; set; }
 
-    public Todo(string title, string details, DateTime date)
+    public Todo(int id, string title, string details, DateTime date)
     {
-        Id = RandomNumberGenerator.GetInt32(1, int.MaxValue);
+        Id = id;
         Title = title;
         Details = details;
         Date = date;

@@ -5,11 +5,11 @@ public class TodoService : ITodoService
     public TodoService()
     {
         // Initialize with some sample data
-        Add(new Todo("Walk the dog", "Take the dog for a walk in the park", DateTime.Now.AddHours(1)));
-        Add(new Todo("Do the dishes", "Wash all the dirty dishes in the sink", DateTime.Now));
-        Add(new Todo("Do the laundry", "Wash and fold all the clothes", DateTime.Now.AddDays(1)));
-        Add(new Todo("Clean the bathroom", "Scrub the toilet, sink, and shower", DateTime.Now.AddDays(3)));
-        Add(new Todo("Clean the car", "Wash and vacuum the car", DateTime.Now.AddDays(2)));
+        Add(new Todo(1, "Walk the dog", "Take the dog for a walk in the park", DateTime.Now.AddHours(1)));
+        Add(new Todo(2, "Do the dishes", "Wash all the dirty dishes in the sink", DateTime.Now));
+        Add(new Todo(3, "Do the laundry", "Wash and fold all the clothes", DateTime.Now.AddDays(1)));
+        Add(new Todo(4, "Clean the bathroom", "Scrub the toilet, sink, and shower", DateTime.Now.AddDays(3)));
+        Add(new Todo(5, "Clean the car", "Wash and vacuum the car", DateTime.Now.AddDays(2)));
     }
 
     public List<Todo> GetAll()

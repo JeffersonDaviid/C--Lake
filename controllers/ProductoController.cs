@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestAPI.Interface;
 using RestAPI.Models;
@@ -15,7 +16,6 @@ public class ProductoController : ControllerBase
         _productoService = productoService;
     }
 
-    // 2. ¿Cómo escribirías el método GET asíncrono para obtener todos los productos usando Ok()?
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -35,6 +35,7 @@ public class ProductoController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Add(Producto producto)
     {
         await _productoService.Add(producto);
@@ -42,6 +43,7 @@ public class ProductoController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> Update(int id, Producto producto)
     {
         if (id != producto.Id)
@@ -58,6 +60,7 @@ public class ProductoController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> Delete(int id)
     {
         var existingProducto = await _productoService.GetById(id);

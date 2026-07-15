@@ -84,8 +84,43 @@ cheques.Add(new Cheque { Banco = "Guayaquil", Numero = 899, Monto = 405.30M, Fec
 var totalCheques = cheques.Sum(c => c.Monto);
 Console.WriteLine("\n\nLos cheques suman " + totalCheques);
 
+// GroupBy Totalizar los cheques por Banco
+var chequesXbancos = cheques.GroupBy(c => c.Banco);
+Console.WriteLine("\n\nGrupos de Bancos");
+foreach (var c in chequesXbancos)
+{
+    Console.WriteLine($"{c.Key} ({c.Count()}) - ${c.Sum(c => c.Monto)}");
+}
+// Montos por grupo
+var montosXgrupo = chequesXbancos.Select(g => g.Sum(ch => ch.Monto));
+Console.WriteLine("\n\nTotal por grupo");
+foreach (var monto in montosXgrupo)
+{
+    Console.WriteLine($"${monto}");
+}
 
+// PERSONA - Edad proximo año 
+var personasProximoAnio = gente.Select(g => new { Nombre = g.Nombre, NuevaEdad = g.Edad + 1 });
+Console.WriteLine("\n\nEdad de proximo año en Personas");
+foreach (var p in personasProximoAnio)
+{
+    Console.WriteLine($"{p.Nombre} - {p.NuevaEdad}");
+}
+// PERSONA - Nombres completos
+var nombresCompletos = gente.Select(g => g.Nombre + " " + g.Apellido);
+Console.WriteLine("\n\nNombres Completos de las personas");
+foreach (var p in nombresCompletos)
+{
+    Console.WriteLine($"{p}");
+}
 
+// Montos por grupo
+var montoXbanco = chequesXbancos.Select(g => new { Banco = g.Key, Total = g.Sum(ch => ch.Monto) });
+Console.WriteLine("\n\nTotal por Banco");
+foreach (var g in montoXbanco)
+{
+    Console.WriteLine($"{g.Banco} - ${g.Total}");
+}
 
 
 class Persona

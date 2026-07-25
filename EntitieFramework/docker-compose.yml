@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tienda
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: db_tienda
+      POSTGRES_USER: user_tienda
+      POSTGRES_PASSWORD: pass_tienda
+    ports:
+      - "5555:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d hellocsharp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgres_data:

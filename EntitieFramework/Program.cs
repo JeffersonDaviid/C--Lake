@@ -11,16 +11,35 @@ foreach (Producto p in productos)
 }
 
 
-// Insertar en DB
-var productoNuevo = new Producto() { Nombre = "Tostadora", Color = "Verde", Costo = 390.00M };
-dbContext.Productos.Add(productoNuevo); // NO hace nada en DB, solo le avisa a EF
-dbContext.Productos.Add(new Producto() { Nombre = "Computadora", Color = "Gris", Costo = 1300M }); // NO hace nada en DB, solo le avisa a EF
-dbContext.SaveChanges(); // Ahora inserta, solo si las dos insert OK
+// INSERTAR
+// var productoNuevo = new Producto() { Nombre = "Tostadora", Color = "Verde", Costo = 390.00M };
+// dbContext.Productos.Add(productoNuevo); // NO hace nada en DB, solo le avisa a EF
+// dbContext.Productos.Add(new Producto() { Nombre = "Computadora", Color = "Gris", Costo = 1300M }); // NO hace nada en DB, solo le avisa a EF
+// dbContext.SaveChanges(); // Ahora inserta, solo si las dos insert OK
 
+
+//productos = dbContext.Productos;
+// foreach (var p in productos)
+//{
+//  Console.WriteLine($"{p.Id} {p.Nombre} {p.Costo} {p.Color}");
+//}
+
+
+// ACTUALIZAR
+Console.WriteLine("\nLuego de Update");
+var updatePro = dbContext.Productos.Where(p => p.Id == 1).First();
+updatePro.Color = "Negro";
+dbContext.SaveChanges();
 
 productos = dbContext.Productos;
-
-foreach (var p in productos)
+ foreach (var p in productos)
 {
-    Console.WriteLine($"{p.Id} {p.Nombre} {p.Costo} {p.Color}");
+  Console.WriteLine($"{p.Id} {p.Nombre} {p.Costo} {p.Color}");
 }
+
+// DELETE
+var deletePro = dbContext.Productos.Where(p => p.Color == "Azul");
+foreach (var p in deletePro)
+{
+    dbContext.Productos.Remove(p);
+}    

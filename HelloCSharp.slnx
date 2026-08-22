@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/LINQ/">
+    <Project Path="LINQ/HelloCsharp.csproj" />
+  </Folder>
+  <Project Path="APIv1/APIv1.csproj" />
+ </Solution>

@@ -1,5 +1,7 @@
 ﻿// L I N Q
 // Lista de Personas
+using Microsoft.VisualBasic;
+
 var p1 = new Persona { Nombre = "Jefferson", Apellido = "Chileno", Edad = 24 };
 var p2 = new Persona { Nombre = "Emilio", Apellido = "Perez", Edad = 22 };
 var p3 = new Persona { Nombre = "Daniela", Apellido = "Perez", Edad = 33 };
@@ -121,6 +123,73 @@ foreach (var g in montoXbanco)
 {
     Console.WriteLine($"{g.Banco} - ${g.Total}");
 }
+
+
+
+// Ejercicio 1
+// sumar todos los valores de una lista
+// encontrar el mayor de la lista
+static int sumarElementos(List<int> lista)
+{
+    int acumulado = 0;
+    foreach (int valor in lista)
+    {
+        acumulado += valor;
+    }
+    return acumulado;
+}
+static int encontrarMayorEntero(List<int> lista)
+{
+    int mayor = 0;
+    foreach (int valor in lista)
+    {
+        if (valor > mayor)
+        {
+            mayor = valor;
+        }
+    }
+    return mayor;
+}
+
+List<int> listaDeNumeros = new List<int> { 21, 3, 4, 5 };
+// listaDeNumeros.Add(12);
+Console.WriteLine($"El valor acumulado es:  {sumarElementos(listaDeNumeros)}\nEl mayor de la lista es: {encontrarMayorEntero(listaDeNumeros)}");
+
+
+// Ejercicio 2
+// Lista de numeros, eliminar los pares
+listaDeNumeros.RemoveAll(valor => valor % 2 == 0);
+foreach (int valor in listaDeNumeros)
+{
+    Console.WriteLine($"Valor es: {valor}");
+}
+
+// Crear una lista de contactos
+Dictionary<string, string> contactos = new()
+{
+    ["Jefferson"] = "09876543210",
+    ["Emilia"] = "09876343210",
+    ["David"] = "09876897210"
+};
+
+foreach (var contact in contactos)
+{
+    Console.WriteLine($"key {contact.Key} es {contact.Value}");
+}
+
+// Ejercicio pedir nombre, si existe mostrar el phone si no mostrar 'no existe'
+static string buscarContacto(Dictionary<string, string> contactos, string nombre)
+{
+    if (contactos.TryGetValue(nombre, out string? telefono))
+    {
+        return $"El contacto es {telefono}";
+    }
+    return "El contacto no existe";
+}
+Console.Write("Ingrese un nombre: ");
+string name = Console.ReadLine() ?? string.Empty;
+Console.WriteLine(buscarContacto(contactos, name));
+
 
 
 class Persona

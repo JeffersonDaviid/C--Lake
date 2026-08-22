@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/EF-Complex/">
+    <Project Path="EF-Complex/EF-Multiple-Tables.csproj" />
+  </Folder>
   <Folder Name="/EF-Simple/">
     <Project Path="EF-Simple/EntitieFramework.csproj" />
   </Folder>

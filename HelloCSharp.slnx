@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/EF-Simple/">
+    <Project Path="EF-Simple/EntitieFramework.csproj" />
+  </Folder>
   <Folder Name="/LINQ/">
     <Project Path="LINQ/HelloCsharp.csproj" />
   </Folder>

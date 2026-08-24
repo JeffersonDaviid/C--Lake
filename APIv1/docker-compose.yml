@@ -1,14 +1,14 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: tienda
+    container_name: apiv1
     restart: unless-stopped
     environment:
-      POSTGRES_DB: db_tienda
-      POSTGRES_USER: user_tienda 
-      POSTGRES_PASSWORD: pass_tienda
+      POSTGRES_DB: user-db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user-pass
     ports:
-      - "5555:5432"
+      - "5551:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:

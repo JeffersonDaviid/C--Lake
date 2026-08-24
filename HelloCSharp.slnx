@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/API-JWT/">
+    <Project Path="API-JWT/RestAPI.csproj" />
+  </Folder>
   <Folder Name="/EF-Complex/">
     <Project Path="EF-Complex/EF-Multiple-Tables.csproj" />
   </Folder>
